@@ -205,6 +205,50 @@ window.addEventListener('load', function() {
 // Set initial body opacity
 document.body.style.opacity = '1';
 
+// ============ AWARD IMAGE MODAL ============
+document.addEventListener('DOMContentLoaded', function() {
+    const awardItems = document.querySelectorAll('.award-item[data-award-image]');
+    const awardModal = document.getElementById('awardModal');
+    const awardModalImage = document.getElementById('awardModalImage');
+    const closeBtn = document.getElementById('closeAwardModal');
+
+    // Open modal when award item is clicked
+    awardItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-award-image');
+            awardModalImage.src = imageUrl;
+            awardModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    // Close modal when close button is clicked
+    if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+            awardModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+    }
+
+    // Close modal when clicking outside
+    if (awardModal) {
+        awardModal.addEventListener('click', function(e) {
+            if (e.target === awardModal) {
+                awardModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && awardModal.classList.contains('active')) {
+            awardModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+});
+
 // ============ UTILITY: Log Portfolio Info ============
 console.log(
     '%c Welcome to Nishanth\'s Portfolio! ',
