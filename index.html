@@ -4,93 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishanth | ECE Student | VLSI & RTL Design Enthusiast</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#667eea',
+                        secondary: '#764ba2',
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style-minimal.css">
 </head>
-<body>
+<body class="bg-gray-50">
     <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo">Nishanth  E </div>
-            <div class="menu-toggle" id="menuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+    <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">Nishanth E</div>
+                <div class="menu-toggle lg:hidden" id="menuToggle">
+                    <span class="block w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
+                    <span class="block w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
+                    <span class="block w-6 h-0.5 bg-gray-800 transition-all"></span>
+                </div>
+                <ul class="nav-menu hidden lg:flex space-x-8" id="navMenu">
+                    <li><a href="#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Home</a></li>
+                    <li><a href="#about" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">About</a></li>
+                    <li><a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Resume</a></li>
+                    <li><a href="#achievements" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Achievements</a></li>
+                    <li><a href="#certificates" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Certificates</a></li>
+                    <li><a href="#projects" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Projects</a></li>
+                    <li><a href="#contact" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Contact</a></li>
+                </ul>
             </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="nav-link">Resume</a></li>
-                <li><a href="#achievements" class="nav-link">Achievements</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-image-wrapper">
-                <img src="https://image2url.com/r2/default/images/1769447708959-0ef0d539-13aa-4c29-9b8d-de3ed8df4e88.jpg" alt="Nishanth's Profile Photo" class="hero-photo">
-            </div>
-            <div class="hero-text">
-                <h1 class="hero-title">Hi, I'm Nishanth</h1>
-                <p class="hero-subtitle">ECE Student | VLSI & RTL Design Enthusiast</p>
-                <p class="hero-tagline">Exploring RTL design, digital electronics, and real-world hardware–software integration</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="cta-button">Get in Touch</a>
-                    <a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="cta-button secondary"> View Resume</a>
+    <section id="home" class="min-h-screen flex items-center pt-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-purple-50 via-white to-indigo-50">
+        <div class="max-w-7xl mx-auto w-full">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1 animate-slide-up">
+                    <h1 class="text-5xl sm:text-6xl font-bold text-gray-900 mb-4">
+                        Hi, I'm <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Nishanth</span>
+                    </h1>
+                    <p class="text-2xl text-gray-700 font-semibold mb-4">ECE Student | VLSI & RTL Design Enthusiast</p>
+                    <p class="text-lg text-gray-600 mb-8">Exploring RTL design, digital electronics, and real-world hardware–software integration</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">Get in Touch</a>
+                        <a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">View Resume</a>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2 flex justify-center animate-float">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary to-secondary rounded-full blur-2xl opacity-30"></div>
+                        <img src="https://image2url.com/r2/default/images/1769447708959-0ef0d539-13aa-4c29-9b8d-de3ed8df4e88.jpg" alt="Nishanth's Profile Photo" class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full object-cover shadow-2xl border-4 border-white">
+                    </div>
                 </div>
             </div>
         </div>
-        
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <p class="about-text">
-                Electronics and Communication Engineering undergraduate with hands-on experience in academic projects, 
-                technical events, and student leadership roles. Strong interest in VLSI design, digital systems, and 
-                emerging technologies.
-            </p>
-            <p class="about-text">
-                Proven ability to work in team environments, coordinate events, and adapt quickly to new technical 
-                domains. Actively seeking opportunities to apply core engineering knowledge in real-world applications 
-                and industry-driven projects.
-            </p>
+    <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">About Me</h2>
+            <div class="space-y-6">
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Electronics and Communication Engineering undergraduate with hands-on experience in academic projects, 
+                    technical events, and student leadership roles. Strong interest in VLSI design, digital systems, and 
+                    emerging technologies.
+                </p>
+                <p class="text-lg text-gray-700 leading-relaxed">
+                    Proven ability to work in team environments, coordinate events, and adapt quickly to new technical 
+                    domains. Actively seeking opportunities to apply core engineering knowledge in real-world applications 
+                    and industry-driven projects.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Achievements Section -->
-    <section id="achievements" class="achievements">
-        <div class="container">
-            <h2 class="section-title">Achievements</h2>
+    <section id="achievements" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Achievements</h2>
 
             <!-- Sub-section 1: Awards & Recognitions -->
-            <div class="achievement-subsection">
-                <h3 class="subsection-title">🏆 Awards & Recognitions</h3>
-                <div class="awards-list">
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold mb-8 text-gray-800 flex items-center gap-2">
+                    <span class="text-3xl">🏆</span> Awards & Recognitions
+                </h3>
+                <div class="space-y-6">
                     <!-- Award Item 1 -->
-                    <div class="award-item" data-award-image="https://image2url.com/r2/default/images/1769519983214-d2b3c35d-58b4-4ef9-8846-3a2a43f59682.jpg">
-                        <div class="award-year">2025</div>
-                        <div class="award-content">
-                            <h4 class="award-title">Star of Maatram Award <span class="award-click-hint">📸 Click to view</span></h4>
-                            <p class="award-desc"> Awarded for outstanding performance in volunteering activities, leadership contributions, 
-    and consistent involvement in institutional and social initiatives.</p>
+                    <div class="award-item group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" data-award-image="https://image2url.com/r2/default/images/1769519983214-d2b3c35d-58b4-4ef9-8846-3a2a43f59682.jpg">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-24 flex-shrink-0">
+                                <div class="inline-block px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold text-lg">2025</div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Star of Maatram Award <span class="text-sm text-gray-500 ml-2">📸 Click to view</span>
+                                </h4>
+                                <p class="text-gray-600 leading-relaxed">Awarded for outstanding performance in volunteering activities, leadership contributions, and consistent involvement in institutional and social initiatives.</p>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Award Item 2 -->
-                    <div class="award-item" data-award-image="https://image2url.com/r2/default/images/1769521667228-0595276b-b680-45d1-9839-2d969cad1ef8.jpeg">
-                        <div class="award-year">2026</div>
-                        <div class="award-content">
-                            <h4 class="award-title">Star of Maatram Award <span class="award-click-hint">📸 Click to view</span></h4>
-                            <p class="award-desc">Recognized for exceptional dedication to volunteering, impactful leadership, 
-    and active participation in organizing and supporting multiple academic and social events.</p>
+                    <div class="award-item group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" data-award-image="https://image2url.com/r2/default/images/1769521667228-0595276b-b680-45d1-9839-2d969cad1ef8.jpeg">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-24 flex-shrink-0">
+                                <div class="inline-block px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold text-lg">2026</div>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                                    Star of Maatram Award <span class="text-sm text-gray-500 ml-2">📸 Click to view</span>
+                                </h4>
+                                <p class="text-gray-600 leading-relaxed">Recognized for exceptional dedication to volunteering, impactful leadership, and active participation in organizing and supporting multiple academic and social events.</p>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
                     
 
@@ -104,59 +156,53 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
+    <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl font-bold text-center mb-16 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Projects</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Wireless Power Transmission System</h3>
-                        <span class="project-tag">C & Hardware</span>
+                <div class="group bg-gradient-to-br from-purple-50 to-indigo-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Wireless Power Transmission System</h3>
                     </div>
-                    <p class="project-duration">
-    <strong>Duration:</strong> Jan 2025
-  </p>
-
-  <p class="project-text">
-    <strong>Description:</strong><br>
-    Designed and implemented a wireless power transmission system using resonant inductive coupling.
-    Achieved efficient short-distance power transfer and analyzed performance parameters for practical applications.
-  </p>
+                    <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-sm rounded-full font-semibold mb-4">C & Hardware</span>
+                    <p class="text-sm text-gray-600 mb-3">
+                        <strong>Duration:</strong> Jan 2025
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Designed and implemented a wireless power transmission system using resonant inductive coupling.
+                        Achieved efficient short-distance power transfer and analyzed performance parameters for practical applications.
+                    </p>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Dental Appointment Management System</h3>
-                        <span class="project-tag">Web Dev</span>
+                <div class="group bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Dental Appointment Management System</h3>
                     </div>
-                    <p class="project-duration">
-    <strong>Duration:</strong> Feb 2025
-  </p>
-
-  <p class="project-text">
-    <strong>Description:</strong><br>
-    Developed a web-based appointment booking and queue management system for dental clinics using HTML, CSS, and JavaScript.
-    Improved patient scheduling efficiency through automated booking and notification features.
-  </p>
+                    <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-sm rounded-full font-semibold mb-4">Web Dev</span>
+                    <p class="text-sm text-gray-600 mb-3">
+                        <strong>Duration:</strong> Feb 2025
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Developed a web-based appointment booking and queue management system for dental clinics using HTML, CSS, and JavaScript.
+                        Improved patient scheduling efficiency through automated booking and notification features.
+                    </p>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-header">
-                        <h3 class="project-title">Smart Chime with Digital Display</h3>
-                        <span class="project-tag">C & Hardware</span>
+                <div class="group bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Smart Chime with Digital Display</h3>
                     </div>
-                     <p class="project-duration">
-    <strong>Duration:</strong> May 2025
-  </p>
-
-  <p class="project-text">
-    <strong>Description:</strong><br>
-    Built an Arduino-based automated school bell system with digital time display.
-    Reduced manual scheduling errors by automating bell timings and daily schedules.
-  </p>
+                    <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-sm rounded-full font-semibold mb-4">C & Hardware</span>
+                    <p class="text-sm text-gray-600 mb-3">
+                        <strong>Duration:</strong> May 2025
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Built an Arduino-based automated school bell system with digital time display.
+                        Reduced manual scheduling errors by automating bell timings and daily schedules.
+                    </p>
                 </div>
 
                 <!-- Project 4 -->
@@ -165,34 +211,162 @@
         </div>
     </section>
 
+    <!-- Certificates Button/Trigger -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto text-center">
+            <button id="certificateBtn" class="px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300 text-lg">
+                 View Certificates & Participation
+            </button>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2  class="section-title">Get In Touch</h2>
-            <p class="contact-intro">
-               Open to collaboration, learning, and new opportunities—feel free to reach out anytime!
-            </p>
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+        <div class="max-w-5xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-4xl sm:text-5xl font-bold mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+                    Open to collaboration, learning, and new opportunities—feel free to reach out anytime!
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <!-- Email -->
+                    <a href="mailto:enishanth29@gmail.com" class="block bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">📧</div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Email</h3>
+                                <p class="text-gray-200 hover:text-primary transition-colors">
+                                    enishanth29@gmail.com
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Phone -->
+                    <a href="tel:+919344477683" class="block bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">📱</div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Phone</h3>
+                                <p class="text-gray-200 hover:text-primary transition-colors text-lg font-semibold">
+                                    +91 9344477683
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/nishanth444" target="_blank" class="block bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">🔗</div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">LinkedIn</h3>
+                                <p class="text-gray-200 hover:text-primary transition-colors">
+                                    /in/nishanth444
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Location -->
+                    <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 hover:bg-white/15 transition-all duration-300">
+                        <div class="flex items-start gap-4">
+                            <div class="text-3xl">📍</div>
+                            <div>
+                                <h3 class="text-xl font-semibold mb-2">Location</h3>
+                                <p class="text-gray-200">
+                                    Chennai, Tamil Nadu
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20 hover:border-white/40 transition-all duration-300">
+                    <h3 class="text-2xl font-bold mb-6">Send Message</h3>
+                    <form id="contactForm" class="space-y-5">
+                        <!-- Name Field -->
+                        <div>
+                            <label for="fullName" class="block text-sm font-medium mb-2">Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName" 
+                                required
+                                placeholder="Your full name"
+                                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-300"
+                            >
+                        </div>
+
+                        <!-- Email Field -->
+                        <div>
+                            <label for="email" class="block text-sm font-medium mb-2">Email Address *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                required
+                                placeholder="your.email@example.com"
+                                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-300"
+                            >
+                        </div>
+
+                        <!-- Message Field -->
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2">Message *</label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                required
+                                rows="5"
+                                placeholder="Tell me about your project or opportunity..."
+                                class="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/30 transition-all duration-300 resize-none"
+                            ></textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button 
+                            type="submit" 
+                            class="w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-lg hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
+                        >
+                            <span>Send Message</span>
+                            <span>📧</span>
+                        </button>
+
+                        <!-- Form Message -->
+                        <p class="text-xs text-gray-400 text-center">
+                            * Required fields. Your message will open in Gmail.
+                        </p>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/nishanth444" target="_blank" title="LinkedIn">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="30">
+    <footer class="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="https://www.linkedin.com/in/nishanth444" target="_blank" title="LinkedIn" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" class="brightness-0 invert opacity-90">
                 </a>
-                <a href="https://github.com/nishanthmax" target="_blank" title="GitHub">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="30">
+                <a href="https://github.com/nishanthmax" target="_blank" title="GitHub" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="24" class="brightness-0 invert opacity-90">
                 </a>
-                <a href="mailto:enishanth29@gmail.com" title="Email">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="30">
+                <a href="mailto:enishanth29@gmail.com" title="Email" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="24" class="brightness-0 invert opacity-90">
                 </a>
-                <a href="https://www.instagram.com/nishxxth._?igsh=MnA3NXV0NjFheTF2" target="_blank" title="Instagram">
-                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="30">
+                <a href="https://www.instagram.com/nishxxth._?igsh=MnA3NXV0NjFheTF2" target="_blank" title="Instagram" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 hover:scale-110">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" class="brightness-0 invert opacity-90">
                 </a>
             </div>
-            <p>© 2026 Nishanth | ECE Student, Jeppiaar Engineering College.</p>
+            <p class="text-gray-400">© 2026 Nishanth | ECE Student, Jeppiaar Engineering College.</p>
         </div>
     </footer>
 
@@ -201,6 +375,60 @@
         <div class="award-modal-content">
             <button class="award-modal-close" id="closeAwardModal">&times;</button>
             <img id="awardModalImage" src="" alt="Award Certificate" class="award-modal-image">
+        </div>
+    </div>
+
+    <!-- Certificate Slider Modal -->
+    <div id="certificateModal" class="certificate-modal">
+        <div class="certificate-modal-content">
+            <button class="certificate-modal-close" id="closeCertificateModal">&times;</button>
+            
+            <div class="certificate-modal-header">
+                <h2 class="text-3xl font-bold text-gray-800">Certificates & Participation</h2>
+                <p class="text-gray-600 mt-2">Recognized for professional development, technical workshops, and participation</p>
+            </div>
+
+            <!-- Certificate Slider Container -->
+            <div class="certificate-slider-container">
+                <div class="certificate-slides" id="certificateSlides">
+                    <!-- Certificate 1 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+1" alt="Certificate 1" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 2 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+2" alt="Certificate 2" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 3 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+3" alt="Certificate 3" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 4 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+4" alt="Certificate 4" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 5 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+5" alt="Certificate 5" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 6 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://via.placeholder.com/600x400?text=Certificate+6" alt="Certificate 6" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="certificate-arrow certificate-arrow-prev" id="certPrevBtn">❮</button>
+                <button class="certificate-arrow certificate-arrow-next" id="certNextBtn">❯</button>
+
+                <!-- Dots -->
+                <div class="certificate-dots" id="certificateDots"></div>
+            </div>
+
+            <!-- Counter -->
+            <div class="certificate-counter">
+                <span id="certificateCounter">1</span> / <span id="certificateTotal">6</span>
+            </div>
         </div>
     </div>
 

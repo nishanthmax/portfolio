@@ -1,0 +1,433 @@
+/* Custom styles to complement Tailwind CSS */
+
+/* Contact Form Styles */
+#contactForm input,
+#contactForm textarea {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+#contactForm input::placeholder,
+#contactForm textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+#contactForm input:focus,
+#contactForm textarea:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Form label styling */
+#contactForm label {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+/* Mobile menu styles */
+.menu-toggle {
+    cursor: pointer;
+}
+
+.nav-menu {
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-height: 0;
+        overflow: hidden;
+    }
+    
+    .nav-menu.active {
+        max-height: 400px;
+        display: flex !important;
+    }
+}
+
+/* Certificate Modal Styles */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.certificate-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.certificate-modal-content {
+    position: relative;
+    background-color: white;
+    border-radius: 16px;
+    padding: 30px;
+    max-width: 900px;
+    width: 95%;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUpFade 0.4s ease;
+}
+
+.certificate-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: #6b7280;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.certificate-modal-close:hover {
+    background-color: #f3f4f6;
+    color: #667eea;
+    transform: scale(1.1);
+}
+
+.certificate-modal-header {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.certificate-modal-header h2 {
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.certificate-slider-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 20px;
+    background: #f9fafb;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.certificate-slides {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.certificate-slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+    border-radius: 12px;
+}
+
+.certificate-slide.active {
+    opacity: 1;
+    z-index: 10;
+}
+
+.certificate-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Navigation Arrows */
+.certificate-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    color: #667eea;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.certificate-arrow:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.certificate-arrow-prev {
+    left: 15px;
+}
+
+.certificate-arrow-next {
+    right: 15px;
+}
+
+.certificate-arrow:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+/* Dots Navigation */
+.certificate-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.certificate-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.certificate-dot:hover {
+    background-color: #bfdbfe;
+    transform: scale(1.2);
+}
+
+.certificate-dot.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 32px;
+    border-radius: 6px;
+}
+
+/* Counter */
+.certificate-counter {
+    text-align: center;
+    color: #6b7280;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .certificate-modal-content {
+        padding: 20px;
+    }
+
+    .certificate-slider-container {
+        height: 300px;
+    }
+
+    .certificate-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .certificate-arrow-prev {
+        left: 10px;
+    }
+
+    .certificate-arrow-next {
+        right: 10px;
+    }
+
+    .certificate-modal-close {
+        font-size: 2rem;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificate-modal-content {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .certificate-slider-container {
+        height: 250px;
+    }
+
+    .certificate-arrow {
+        width: 35px;
+        height: 35px;
+        font-size: 1.2rem;
+    }
+
+    .certificate-dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .certificate-dot.active {
+        width: 28px;
+    }
+}
+
+/* Award Modal Styles */
+.award-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fadeIn 0.3s ease;
+}
+
+.award-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.award-modal-content {
+    position: relative;
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 80%;
+    max-height: 85vh;
+    overflow: auto;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUpFade 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.award-modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 8px;
+    display: block;
+    object-fit: contain;
+}
+
+.award-modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #1f2937;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.award-modal-close:hover {
+    background-color: #f3f4f6;
+    color: #667eea;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}

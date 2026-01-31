@@ -256,3 +256,164 @@ console.log(
 );
 console.log('Made with HTML, CSS, and JavaScript');
 console.log('Feel free to explore and get in touch!');
+
+// ============ CONTACT FORM HANDLER ============
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const fullName = document.getElementById('fullName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Validate required fields
+        if (!fullName || !email || !message) {
+            alert('Please fill in all required fields (Name, Email, Message)');
+            return;
+        }
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Please enter a valid email address');
+            return;
+        }
+        
+        // Build email subject and body
+        const subject = 'Portfolio Contact - ' + fullName;
+        
+        const emailBody = `Hello,
+
+I am interested in getting in touch!
+
+Contact Information:
+Name: ${fullName}
+Email: ${email}
+
+Message:
+${message}
+
+---
+Sent from Nishanth's Portfolio Website`;
+        
+        // Create mailto link
+        const mailtoLink = `mailto:enishanth29@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+        
+        // Show success message
+        alert('Opening your email client to compose the message...');
+        
+        // Open email client
+        window.location.href = mailtoLink;
+        
+        // Reset form after a short delay
+        setTimeout(() => {
+            contactForm.reset();
+        }, 1000);
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const certificateBtn = document.getElementById('certificateBtn');
+    const certificateModal = document.getElementById('certificateModal');
+    const closeCertificateModal = document.getElementById('closeCertificateModal');
+    const slides = document.querySelectorAll('.certificate-slide');
+    const certificateDots = document.getElementById('certificateDots');
+    const certificateCounter = document.getElementById('certificateCounter');
+    const certificateTotal = document.getElementById('certificateTotal');
+    const prevBtn = document.getElementById('certPrevBtn');
+    const nextBtn = document.getElementById('certNextBtn');
+    
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    
+    certificateTotal.textContent = totalSlides;
+    
+    // Create dots
+    slides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('certificate-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(index));
+        certificateDots.appendChild(dot);
+    });
+    
+    const dots = document.querySelectorAll('.certificate-dot');
+    
+    function updateSlide() {
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active');
+            if (index === currentSlide) {
+                slide.classList.add('active');
+            }
+        });
+        
+        dots.forEach((dot, index) => {
+            dot.classList.remove('active');
+            if (index === currentSlide) {
+                dot.classList.add('active');
+            }
+        });
+        
+        certificateCounter.textContent = currentSlide + 1;
+    }
+    
+    function goToSlide(index) {
+        currentSlide = index;
+        updateSlide();
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlide();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlide();
+    }
+    
+    // Open modal
+    certificateBtn.addEventListener('click', function() {
+        certificateModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        currentSlide = 0;
+        updateSlide();
+    });
+    
+    // Close modal
+    closeCertificateModal.addEventListener('click', function() {
+        certificateModal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Close modal when clicking outside
+    certificateModal.addEventListener('click', function(e) {
+        if (e.target === certificateModal) {
+            certificateModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Navigation buttons
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (!certificateModal.classList.contains('active')) return;
+        
+        if (e.key === 'ArrowLeft') prevSlide();
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'Escape') {
+            certificateModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // Initialize first slide
+    updateSlide();
+});
