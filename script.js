@@ -101,36 +101,108 @@ document.querySelectorAll('.skill-card, .project-card, .contact-card').forEach(e
 });
 
 // ============ ABOUT SECTION SCROLL ANIMATIONS ============
-const aboutObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const delay = entry.target.dataset.delay || 0;
-            setTimeout(() => {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateX(0)';
-            }, delay);
-            aboutObserver.unobserve(entry.target);
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const aboutObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                const delay = parseInt(entry.target.dataset.delay) || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                    entry.target.classList.add('animated');
+                }, delay);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px'
     });
-}, {
-    threshold: 0.15,
-    rootMargin: '0px'
-});
 
-// Observe About section text (fade from left)
-document.querySelectorAll('.about-text-fade').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateX(-30px)';
-    element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    aboutObserver.observe(element);
-});
+    // Observe About section text (fade from left)
+    document.querySelectorAll('.about-text-fade').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateX(-30px)';
+        element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        aboutObserver.observe(element);
+    });
 
-// Observe About section cards (fade from right with staggered delays)
-document.querySelectorAll('.about-card-fade').forEach(element => {
-    element.style.opacity = '0';
-    element.style.transform = 'translateX(30px)';
-    element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-    aboutObserver.observe(element);
+    // Observe About section cards (fade from right with staggered delays)
+    document.querySelectorAll('.about-card-fade').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateX(30px)';
+        element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        aboutObserver.observe(element);
+    });
+
+    // ============ PROJECTS SECTION SCROLL ANIMATIONS ============
+    const projectObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                const delay = parseInt(entry.target.dataset.delay) || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animated');
+                }, delay);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    // Observe project items (fade from bottom with staggered delays)
+    document.querySelectorAll('.project-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        projectObserver.observe(element);
+    });
+
+    // ============ ACHIEVEMENTS SECTION SCROLL ANIMATIONS ============
+    const achievementObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                const delay = parseInt(entry.target.dataset.delay) || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                    entry.target.classList.add('animated');
+                }, delay);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px'
+    });
+
+    // Observe achievement items (fade from left with staggered delays)
+    document.querySelectorAll('.achievement-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateX(-30px)';
+        element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        achievementObserver.observe(element);
+    });
+
+    // ============ GENERIC SCROLL REVEAL (HERO, CERTIFICATES, CONTACT, HEADINGS) ============
+    const revealObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = parseInt(entry.target.dataset.delay) || 0;
+                setTimeout(() => {
+                    entry.target.classList.add('is-visible');
+                }, delay);
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -60px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(element => {
+        revealObserver.observe(element);
+    });
 });
 
 // ============ SCROLL TO TOP BUTTON ============
@@ -381,6 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
 // ============ UTILITY: Log Portfolio Info ============
 console.log(
     '%c Welcome to Nishanth\'s Portfolio! ',
@@ -392,60 +465,54 @@ console.log('Feel free to explore and get in touch!');
 // ============ CONTACT FORM HANDLER ============
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+    const submitBtn = document.getElementById('submitBtn');
     
     if (!contactForm) return;
     
     contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form values
-        const fullName = document.getElementById('fullName').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+        // Disable button to prevent multiple submissions
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Sending...</span><span>⏳</span>';
         
-        // Validate required fields
-        if (!fullName || !email || !message) {
-            alert('Please fill in all required fields (Name, Email, Message)');
-            return;
-        }
+        // Prepare form data
+        const formData = new FormData(contactForm);
         
-        // Validate email format
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Please enter a valid email address');
-            return;
-        }
-        
-        // Build email subject and body
-        const subject = 'Portfolio Contact - ' + fullName;
-        
-        const emailBody = `Hello,
-
-I am interested in getting in touch!
-
-Contact Information:
-Name: ${fullName}
-Email: ${email}
-
-Message:
-${message}
-
----
-Sent from Nishanth's Portfolio Website`;
-        
-        // Create mailto link
-        const mailtoLink = `mailto:enishanth29@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-        
-        // Show success message
-        alert('Opening your email client to compose the message...');
-        
-        // Open email client
-        window.location.href = mailtoLink;
-        
-        // Reset form after a short delay
-        setTimeout(() => {
-            contactForm.reset();
-        }, 1000);
+        // Send to Formspree
+        fetch('https://formspree.io/f/mpqlwyna', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show success message
+                successMessage.classList.remove('hidden');
+                contactForm.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an error sending your message. Please try again or contact me directly.');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
     });
 });
 document.addEventListener('DOMContentLoaded', function() {
@@ -548,4 +615,44 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initialize first slide
     updateSlide();
+    // ============ CONTACT SECTION SCROLL ANIMATIONS ============
+    const contactObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                const delay = parseInt(entry.target.dataset.delay) || 0;
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('animated');
+                }, delay);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px'
+    });
+
+    // Observe contact items (fade from bottom with staggered delays)
+    document.querySelectorAll('.contact-item').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(30px)';
+        element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+        contactObserver.observe(element);
+    });
+
+    // ============ SMOOTH SCROLL TO SECTION (NAV LINKS) ============
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            if (href === '#' || !document.querySelector(href)) return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+    });
+
 });

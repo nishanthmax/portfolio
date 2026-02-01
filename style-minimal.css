@@ -431,3 +431,114 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
+
+/* ============ SCROLL REVEAL UTILITIES ============ */
+.reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: opacity, transform;
+}
+
+.reveal.reveal-left {
+    transform: translateX(-24px);
+}
+
+.reveal.reveal-right {
+    transform: translateX(24px);
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+/* ============ HOVER ANIMATIONS ============ */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow {
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+/* ============ INTERACTIVE ELEMENT TRANSITIONS ============ */
+a, button, .project-item, .contact-item {
+    transition: all 0.3s ease;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.project-link.secondary {
+    background: transparent;
+    color: #4f46e5;
+    border: 1px solid rgba(79, 70, 229, 0.4);
+}
+
+/* ============ CERTIFICATE SIZE ENHANCEMENTS ============ */
+.certificate-slider-container {
+    height: 520px;
+}
+
+@media (max-width: 768px) {
+    .certificate-slider-container {
+        height: 320px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .hover-lift,
+    .hover-scale,
+    .hover-glow {
+        transition: none;
+    }
+
+    .hover-lift:hover,
+    .hover-scale:hover {
+        transform: none;
+        box-shadow: none;
+    }
+}
