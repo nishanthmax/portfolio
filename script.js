@@ -240,20 +240,113 @@ document.body.style.opacity = '1';
 
 // ============ AWARD IMAGE MODAL ============
 document.addEventListener('DOMContentLoaded', function() {
-    const awardItems = document.querySelectorAll('.award-item[data-award-image]');
+    const awardItems = document.querySelectorAll('.award-item[data-award-image], .award-item[data-award-images]');
+    const experienceItems = document.querySelectorAll('.experience-item[data-experience-image]');
     const awardModal = document.getElementById('awardModal');
     const awardModalImage = document.getElementById('awardModalImage');
     const closeBtn = document.getElementById('closeAwardModal');
+    
+    let currentImages = [];
+    let currentImageIndex = 0;
 
     // Open modal when award item is clicked
     awardItems.forEach(item => {
         item.addEventListener('click', function() {
-            const imageUrl = this.getAttribute('data-award-image');
-            awardModalImage.src = imageUrl;
-            awardModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
+            // Check if it's a single image or multiple images
+            const singleImage = this.getAttribute('data-award-image');
+            const multipleImages = this.getAttribute('data-award-images');
+            
+            if (multipleImages) {
+                // Parse the JSON array of images
+                currentImages = JSON.parse(multipleImages);
+                currentImageIndex = 0;
+            } else if (singleImage) {
+                currentImages = [singleImage];
+                currentImageIndex = 0;
+            }
+            
+            // Display the first image
+            if (currentImages.length > 0) {
+                awardModalImage.src = currentImages[currentImageIndex];
+                awardModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Add navigation controls if multiple images
+                updateNavigationControls();
+            }
         });
     });
+    
+    // Open modal when experience item is clicked
+    experienceItems.forEach(item => {
+        item.addEventListener('click', function() {
+            const imageUrl = this.getAttribute('data-experience-image');
+            if (imageUrl) {
+                currentImages = [imageUrl];
+                currentImageIndex = 0;
+                awardModalImage.src = imageUrl;
+                awardModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                updateNavigationControls();
+            }
+        });
+    });
+    
+    // Update navigation controls visibility
+    function updateNavigationControls() {
+        const modalContent = document.querySelector('.award-modal-content');
+        
+        // Remove existing controls
+        const existingPrev = modalContent.querySelector('.award-nav-prev');
+        const existingNext = modalContent.querySelector('.award-nav-next');
+        const existingCounter = modalContent.querySelector('.award-counter');
+        
+        if (existingPrev) existingPrev.remove();
+        if (existingNext) existingNext.remove();
+        if (existingCounter) existingCounter.remove();
+        
+        if (currentImages.length > 1) {
+            // Add previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'award-nav-prev';
+            prevBtn.innerHTML = '❮';
+            prevBtn.onclick = () => navigateImage(-1);
+            modalContent.appendChild(prevBtn);
+            
+            // Add next button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'award-nav-next';
+            nextBtn.innerHTML = '❯';
+            nextBtn.onclick = () => navigateImage(1);
+            modalContent.appendChild(nextBtn);
+            
+            // Add counter
+            const counter = document.createElement('div');
+            counter.className = 'award-counter';
+            counter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+            modalContent.appendChild(counter);
+        }
+    }
+    
+    // Navigate between images
+    function navigateImage(direction) {
+        currentImageIndex += direction;
+        
+        // Loop around
+        if (currentImageIndex < 0) {
+            currentImageIndex = currentImages.length - 1;
+        } else if (currentImageIndex >= currentImages.length) {
+            currentImageIndex = 0;
+        }
+        
+        awardModalImage.src = currentImages[currentImageIndex];
+        
+        // Update counter
+        const counter = document.querySelector('.award-counter');
+        if (counter) {
+            counter.textContent = `${currentImageIndex + 1} / ${currentImages.length}`;
+        }
+    }
 
     // Close modal when close button is clicked
     if (closeBtn) {
@@ -273,11 +366,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close modal with Escape key
+    // Close modal with Escape key, navigate with arrow keys
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && awardModal.classList.contains('active')) {
-            awardModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
+        if (awardModal && awardModal.classList.contains('active')) {
+            if (e.key === 'Escape') {
+                awardModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            } else if (e.key === 'ArrowLeft' && currentImages.length > 1) {
+                navigateImage(-1);
+            } else if (e.key === 'ArrowRight' && currentImages.length > 1) {
+                navigateImage(1);
+            }
         }
     });
 });

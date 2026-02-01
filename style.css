@@ -599,6 +599,61 @@ a {
     color: var(--primary-color);
 }
 
+/* Award Modal Navigation Controls */
+.award-nav-prev,
+.award-nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(99, 102, 241, 0.8);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.award-nav-prev {
+    left: 20px;
+}
+
+.award-nav-next {
+    right: 20px;
+}
+
+.award-nav-prev:hover,
+.award-nav-next:hover {
+    background: rgba(99, 102, 241, 1);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.award-counter {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(99, 102, 241, 0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    z-index: 10;
+}
+
+/* ========== Certificate Rotation ========== */
+.rotate-ccw-90 {
+    transform: rotate(-90deg);
+    transform-origin: center;
+}
+
 /* ========== Certificates & Events ========== */
 .certificates-grid {
     display: grid;

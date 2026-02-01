@@ -120,20 +120,20 @@
                         </div>
                         <div class="ml-9 space-y-4">
                             <!-- Experience Item 1 -->
-                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
-                                <p class="text-sm font-semibold text-gray-800">NLC India Limited</p>
+                            <div class="experience-item border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300 cursor-pointer" data-experience-image="https://lh3.googleusercontent.com/d/1Cnn_DkqP61sP76c1F48xN0Q_cLoF00W2">
+                                <p class="text-sm font-semibold text-gray-800">NLC India Limited <span class="text-xs text-gray-500"></span></p>
                                 <p class="text-xs text-primary font-medium">Mine–II, Neyveli | June 2025 | 14 Days</p>
                                 <p class="text-xs text-gray-600 mt-1">Exposure to telecommunication systems and networking in mining operations</p>
                             </div>
                             <!-- Experience Item 2 -->
-                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
-                                <p class="text-sm font-semibold text-gray-800">ThinkSemi Infotech Pvt. Ltd.</p>
+                            <div class="experience-item border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300 cursor-pointer" data-experience-image="https://lh3.googleusercontent.com/d/1D7NDh7SI0bEVCI_525TPfgMNKI9CUiaI">
+                                <p class="text-sm font-semibold text-gray-800">ThinkSemi Infotech Pvt. Ltd. <span class="text-xs text-gray-500"></span></p>
                                 <p class="text-xs text-primary font-medium">SMT Engineering Intern | December 2025 | 15 Days</p>
                                 <p class="text-xs text-gray-600 mt-1">SMT engineering, PCB inspection, and quality checking</p>
                             </div>
                             <!-- Experience Item 3 -->
-                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
-                                <p class="text-sm font-semibold text-gray-800">Manvaasam</p>
+                            <div class="experience-item border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300 cursor-pointer" data-experience-image="https://lh3.googleusercontent.com/d/1ReGc6Z0gK3jP9-nCaMfy3uPBIz2jes6A">
+                                <p class="text-sm font-semibold text-gray-800">Manvaasam <span class="text-xs text-gray-500"></span></p>
                                 <p class="text-xs text-primary font-medium">Digital Media Intern (Remote) | June 2024 – August 2024</p>
                                 <p class="text-xs text-gray-600 mt-1">Designed digital creatives and managed social media campaigns</p>
                             </div>
@@ -189,14 +189,14 @@
                     </div>
 
                     <!-- Award Item 2 -->
-                    <div class="award-item group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" data-award-image="https://image2url.com/r2/default/images/1769521667228-0595276b-b680-45d1-9839-2d969cad1ef8.jpeg">
+                    <div class="award-item group bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer transform hover:-translate-y-2" data-award-images='["https://image2url.com/r2/default/images/1769930682870-b612e684-5945-4dfc-97c9-88fc26d5ed7c.jpeg", "https://image2url.com/r2/default/images/1769930733550-8733bd16-6218-4a56-a237-997d0af3fdff.jpeg"]'>
                         <div class="flex flex-col md:flex-row gap-6">
                             <div class="md:w-24 flex-shrink-0">
                                 <div class="inline-block px-4 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-bold text-lg">2026</div>
                             </div>
                             <div class="flex-1">
                                 <h4 class="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                                    Star of Maatram Award <span class="text-sm text-gray-500 ml-2">📸 Click to view</span>
+                                    Star of Maatram Award <span class="text-sm text-gray-500 ml-2">📸 Click to view </span>
                                 </h4>
                                 <p class="text-gray-600 leading-relaxed">Recognized for exceptional dedication to volunteering, impactful leadership, and active participation in organizing and supporting multiple academic and social events.</p>
                             </div>
@@ -237,9 +237,9 @@
                 </div>
 
                 <!-- Project 2 -->
-                <div class="group bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+                <a href="https://simledentalappointment.netlify.app/" target="_blank" class="group bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 block cursor-pointer">
                     <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Dental Appointment Management System</h3>
+                        <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Dental Appointment Management System <span class="text-xs text-gray-500"></span></h3>
                     </div>
                     <span class="inline-block px-3 py-1 bg-gradient-to-r from-primary to-secondary text-white text-sm rounded-full font-semibold mb-4">Web Dev</span>
                     <p class="text-sm text-gray-600 mb-3">
@@ -249,7 +249,7 @@
                         Developed a web-based appointment booking and queue management system for dental clinics using HTML, CSS, and JavaScript.
                         Improved patient scheduling efficiency through automated booking and notification features.
                     </p>
-                </div>
+                </a>
 
                 <!-- Project 3 -->
                 <div class="group bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
@@ -454,27 +454,79 @@
                 <div class="certificate-slides" id="certificateSlides">
                     <!-- Certificate 1 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+1" alt="Certificate 1" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1n3RkHLqIbfpDMi6Y6SNOHp6ZsSHa24k0" alt="Certificate 1" class="w-full h-full object-cover">
                     </div>
                     <!-- Certificate 2 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+2" alt="Certificate 2" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1IAd5RoM7mGAp17HCv6VfuzAODhZykKfP" alt="Certificate 2" class="w-full h-full object-cover">
                     </div>
                     <!-- Certificate 3 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+3" alt="Certificate 3" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1U4xbLHCG5rxhjMId3WgSSOMLMZUm75id" alt="Certificate 3" class="w-full h-full object-cover">
                     </div>
                     <!-- Certificate 4 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+4" alt="Certificate 4" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1qKgADFHENA4dl_bHWmZuxKVSM5j52UgP" alt="Certificate 4" class="w-full h-full object-cover">
                     </div>
                     <!-- Certificate 5 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+5" alt="Certificate 5" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1l-_81153mYskpo5c4gPcju8S7xHDGObY" alt="Certificate 5" class="w-full h-full object-cover">
                     </div>
                     <!-- Certificate 6 -->
                     <div class="certificate-slide animate-fade-in">
-                        <img src="https://via.placeholder.com/600x400?text=Certificate+6" alt="Certificate 6" class="w-full h-full object-cover">
+                        <img src="https://lh3.googleusercontent.com/d/1v5bUDb2GYN7rELyMOC_ThR8Ig7IWzK_H" alt="Certificate 6" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 7 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1Yi0BdtCvalr1VHazbHEaV1gAg93YyvYH" alt="Certificate 7" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 8 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1c2D5yosmvDdc0f9ewqC14Mi1HlGby6hA" alt="Certificate 8" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 9 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1T49TthHnOp68kKSxuJGGHhsVDcAiW99r" alt="Certificate 9" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 10 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1TIxQ67zJMVgEzvBezKKkG7PUj6eisXj8" alt="Certificate 10" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 11 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1NmU3N9qLvsC8hFV_6NKDppkP2XQi4pt0" alt="Certificate 11" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 12 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1U2ZHqkhJGnC5GnQv0bbq9k_ouZPS5dy6" alt="Certificate 12" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 13 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1Rjrt7aICXvVOWVrtPNr06zau50TAZgkb" alt="Certificate 13" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 14 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1D-UnB_ysug6nj7G4zxfAGBpzD5-qV2RD" alt="Certificate 14" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 16 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1t9GIqah_TdHpuP-6SV-zlCAoAdk8C_Sv" alt="Certificate 16" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 17 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1PEVGTsdvP2z3_mXPL7MIQQX4DEjc5tEX" alt="Certificate 17" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 18 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/19WhMqxeIVUIIPv0ZpD_VTb0nd914H2Ml" alt="Certificate 18" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 19 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1mgG0cZrKoGCrVDvYsqIEw0M8No_0W_8-" alt="Certificate 19" class="w-full h-full object-cover">
+                    </div>
+                    <!-- Certificate 20 -->
+                    <div class="certificate-slide animate-fade-in">
+                        <img src="https://lh3.googleusercontent.com/d/1uZIFd_eHPgHL_yy3K2k2wwdrMVJ5f52T" alt="Certificate 20" class="w-full h-full object-cover">
                     </div>
                 </div>
 
@@ -488,7 +540,7 @@
 
             <!-- Counter -->
             <div class="certificate-counter">
-                <span id="certificateCounter">1</span> / <span id="certificateTotal">6</span>
+                <span id="certificateCounter">1</span> / <span id="certificateTotal">19</span>
             </div>
         </div>
     </div>
