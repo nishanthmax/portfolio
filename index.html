@@ -38,7 +38,7 @@
     <nav class="fixed w-full top-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">Nishanth E</div>
+                <a href="#home" class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent whitespace-nowrap">Nishanth E</a>
                 <div class="menu-toggle lg:hidden" id="menuToggle">
                     <span class="block w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
                     <span class="block w-6 h-0.5 bg-gray-800 mb-1 transition-all"></span>
@@ -47,7 +47,7 @@
                 <ul class="nav-menu hidden lg:flex space-x-8" id="navMenu">
                     <li><a href="#home" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Home</a></li>
                     <li><a href="#about" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">About</a></li>
-                    <li><a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Resume</a></li>
+                    <li><a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME_1.pdf" target="_blank" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Resume</a></li>
                     <li><a href="#achievements" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Achievements</a></li>
                     <li><a href="#certificates" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Certificates</a></li>
                     <li><a href="#projects" class="nav-link text-gray-700 hover:text-primary font-medium transition-colors duration-300">Projects</a></li>
@@ -69,7 +69,7 @@
                     <p class="text-lg text-gray-600 mb-8">Exploring RTL design, digital electronics, and real-world hardware–software integration</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#contact" class="px-8 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg font-semibold hover:shadow-lg hover:scale-105 transition-all duration-300">Get in Touch</a>
-                        <a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME%20.pdf" target="_blank" class="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">View Resume</a>
+                        <a href="https://nishanthmax.github.io/portfolio/NISHANTH_RESUME_1.pdf" target="_blank" class="px-8 py-3 border-2 border-primary text-primary rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300">View Resume</a>
                     </div>
                 </div>
                 <div class="order-1 lg:order-2 flex justify-center animate-float">
@@ -84,19 +84,80 @@
 
     <!-- About Section -->
     <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">About Me</h2>
-            <div class="space-y-6">
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Electronics and Communication Engineering undergraduate with hands-on experience in academic projects, 
-                    technical events, and student leadership roles. Strong interest in VLSI design, digital systems, and 
-                    emerging technologies.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    Proven ability to work in team environments, coordinate events, and adapt quickly to new technical 
-                    domains. Actively seeking opportunities to apply core engineering knowledge in real-world applications 
-                    and industry-driven projects.
-                </p>
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-5 gap-12 items-start">
+                <!-- Left Column: About Text -->
+                <div class="md:col-span-2 space-y-6 about-text-fade">
+                    <h2 class="text-4xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-8">About Me</h2>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Passionate about VLSI design, digital systems, and emerging technologies, I thrive on turning ideas into practical solutions. From designing circuits to exploring hardware-software integration, I'm constantly learning through hands-on projects and real-world applications.
+                    </p>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Driven by curiosity and a growth mindset, I actively seek opportunities through workshops, internships, and collaborative initiatives. Whether it's leading teams, coordinating events, or building meaningful projects, I'm committed to continuous improvement and making an impact.
+                    </p>
+                </div>
+
+                <!-- Right Column: Stacked Cards -->
+                <div class="md:col-span-3 space-y-5">
+                    <!-- Education Card -->
+                    <div class="group bg-gradient-to-br from-indigo-50 to-blue-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 about-card-fade" data-delay="100">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="text-2xl">🎓</span>
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Education</h3>
+                        </div>
+                        <div class="ml-9 space-y-2">
+                            <p class="text-base font-semibold text-gray-800">B.E Electronics and Communication Engineering</p>
+                            <p class="text-sm text-gray-600">Jeppiaar Engineering College</p>
+                            <p class="text-xs text-gray-500">Anna University</p>
+                        </div>
+                    </div>
+
+                    <!-- Experience Card -->
+                    <div class="group bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 about-card-fade" data-delay="200">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="text-2xl">💼</span>
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Experience</h3>
+                        </div>
+                        <div class="ml-9 space-y-4">
+                            <!-- Experience Item 1 -->
+                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
+                                <p class="text-sm font-semibold text-gray-800">NLC India Limited</p>
+                                <p class="text-xs text-primary font-medium">Mine–II, Neyveli | June 2025 | 14 Days</p>
+                                <p class="text-xs text-gray-600 mt-1">Exposure to telecommunication systems and networking in mining operations</p>
+                            </div>
+                            <!-- Experience Item 2 -->
+                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
+                                <p class="text-sm font-semibold text-gray-800">ThinkSemi Infotech Pvt. Ltd.</p>
+                                <p class="text-xs text-primary font-medium">SMT Engineering Intern | December 2025 | 15 Days</p>
+                                <p class="text-xs text-gray-600 mt-1">SMT engineering, PCB inspection, and quality checking</p>
+                            </div>
+                            <!-- Experience Item 3 -->
+                            <div class="border-l-2 border-primary/30 pl-4 hover:border-primary transition-colors duration-300">
+                                <p class="text-sm font-semibold text-gray-800">Manvaasam</p>
+                                <p class="text-xs text-primary font-medium">Digital Media Intern (Remote) | June 2024 – August 2024</p>
+                                <p class="text-xs text-gray-600 mt-1">Designed digital creatives and managed social media campaigns</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Leadership & Teamwork Card -->
+                    <div class="group bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 about-card-fade" data-delay="300">
+                        <div class="flex items-start gap-3 mb-4">
+                            <span class="text-2xl">🤝</span>
+                            <h3 class="text-xl font-bold text-gray-900 group-hover:text-primary transition-colors">Leadership & Teamwork</h3>
+                        </div>
+                        <div class="ml-9 space-y-3">
+                            <div class="space-y-1">
+                                <p class="text-sm font-semibold text-gray-800">• SPS Chairperson – IEEE</p>
+                                <p class="text-sm font-semibold text-gray-800">• NSS Student Coordinator</p>
+                                <p class="text-sm font-semibold text-gray-800">• Innovation & Branding Chair – Yuva JEC</p>
+                            </div>
+                            <p class="text-sm text-gray-700 leading-relaxed pt-2">
+                                Experienced in leadership, event coordination, teamwork, and driving technical initiatives. Committed to fostering collaboration and contributing to community development.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

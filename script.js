@@ -100,6 +100,39 @@ document.querySelectorAll('.skill-card, .project-card, .contact-card').forEach(e
     observer.observe(element);
 });
 
+// ============ ABOUT SECTION SCROLL ANIMATIONS ============
+const aboutObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const delay = entry.target.dataset.delay || 0;
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateX(0)';
+            }, delay);
+            aboutObserver.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15,
+    rootMargin: '0px'
+});
+
+// Observe About section text (fade from left)
+document.querySelectorAll('.about-text-fade').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateX(-30px)';
+    element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    aboutObserver.observe(element);
+});
+
+// Observe About section cards (fade from right with staggered delays)
+document.querySelectorAll('.about-card-fade').forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateX(30px)';
+    element.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+    aboutObserver.observe(element);
+});
+
 // ============ SCROLL TO TOP BUTTON ============
 // Create scroll-to-top button
 const scrollToTopBtn = document.createElement('button');
