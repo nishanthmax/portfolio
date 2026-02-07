@@ -509,9 +509,11 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error:', error);
-            alert('There was an error sending your message. Please try again or contact me directly.');
+            alert('There was an error sending your message. Submitting via standard form.');
             submitBtn.innerHTML = originalText;
             submitBtn.disabled = false;
+            // Fallback to native form submit (improves mobile compatibility)
+            contactForm.submit();
         });
     });
 });
